@@ -1,3 +1,4 @@
+import CreateProduct from "./components/CreateProduct";
 import ErrorMessage from "./components/ErrorMessage";
 import Loader from "./components/Loader";
 import Modal from "./components/Modal";
@@ -14,7 +15,9 @@ function App() {
       <div className="grid grid-cols-4 gap-4">
         { products.map(product => <Product product={product} key={product.id}/>) }
       </div>
-      <Modal />
+      <Modal>
+        <CreateProduct />
+      </Modal>
     </div>
     
   );

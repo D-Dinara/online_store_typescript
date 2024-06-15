@@ -1,4 +1,10 @@
-const Modal = () => {
+import React from "react";
+
+interface ModalProps {
+  children: React.ReactNode
+}
+
+const Modal = ({ children }: ModalProps) => {
   return (
     <>
       <div 
@@ -7,7 +13,7 @@ const Modal = () => {
       <div
         className="w-[500px] p-5 rounded bg-white absolute top-10 left-1/2 -translate-x-1/2"
       >
-        
+        { children }
       </div>
     </>
   )
