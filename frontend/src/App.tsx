@@ -1,3 +1,5 @@
+import ErrorMessage from "./components/ErrorMessage";
+import Loader from "./components/Loader";
 import Product from "./components/Product";
 import { useProducts } from "./hooks/products";
 
@@ -5,11 +7,14 @@ function App() {
   const { products, error, loading } = useProducts();
 
   return (
-    <div className="grid grid-cols-4 gap-4 mx-auto max-w-6xl pt-5">
-      { loading && <p className="text-center">Loading...</p> }
-      { error && <p className="text-center text-red-600">{ error }</p> }
-      { products.map(product => <Product product={product} key={product.id}/>) }
+    <div className="container mx-auto max-w-6xl pt-5">
+      { error && <ErrorMessage error={error} /> }
+      { loading &&  <Loader /> }
+      <div className="grid grid-cols-4 gap-4">
+        { products.map(product => <Product product={product} key={product.id}/>) }
+      </div>
     </div>
+    
   );
 }
 
